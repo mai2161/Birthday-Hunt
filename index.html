@@ -1,134 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Favorite Human</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(135deg, #fff5f7 0%, #ffe4e1 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Quicksand', sans-serif;
-            overflow: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Floating animation for the scrapbook feel */
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(-2deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
-            100% { transform: translateY(0px) rotate(-2deg); }
-        }
+<title>For My Favorite Human</title>
 
-        .scrapbook-frame {
-            position: relative;
-            background: white;
-            padding: 15px 15px 80px 15px;
-            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.4);
-            border-radius: 4px;
-            animation: float 4s ease-in-out infinite;
-            max-width: 320px;
-            width: 80%;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
-        .mySlides {
-            display: none;
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            border: 1px solid #f0f0f0;
-        }
+<style>
+body {
+    background: linear-gradient(135deg, #fff5f7 0%, #ffe4e1 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    overflow: hidden;
+}
 
-        .caption {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            left: 0;
-            text-align: center;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: #ff6b81;
-        }
+@keyframes float {
+    0% { transform: translateY(0px) rotate(-2deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+    100% { transform: translateY(0px) rotate(-2deg); }
+}
 
-        .heart-decor {
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            font-size: 2rem;
-        }
+.scrapbook-frame {
+    position: relative;
+    background: white;
+    padding: 15px 15px 80px 15px;
+    box-shadow: 0 15px 35px rgba(255,182,193,0.4);
+    border-radius: 4px;
+    animation: float 4s ease-in-out infinite;
+    max-width: 320px;
+    width: 80%;
+}
 
-        .btn-start {
-            margin-top: 50px;
-            background-color: #ff6b81;
-            color: white;
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            box-shadow: 0 8px 20px rgba(255, 107, 129, 0.3);
-            transition: 0.3s;
-        }
+.mySlides {
+    display: none;
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border: 1px solid #f0f0f0;
+}
 
-        .btn-start:hover {
-            transform: scale(1.1);
-            background-color: #ff4757;
-        }
+.caption {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #ff6b81;
+}
 
-        /* Falling hearts background effect */
-        .hearts {
-            position: fixed;
-            top: -10px;
-            color: #ffb6c1;
-            user-select: none;
-            z-index: -1;
-            animation: fall 5s linear infinite;
-        }
+.heart-decor {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 2rem;
+}
 
-        @keyframes fall {
-            to { transform: translateY(100vh); }
-        }
-    </style>
+.btn-start {
+    margin-top: 30px;
+    background-color: #ff6b81;
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 20px rgba(255,107,129,0.3);
+    transition: 0.3s;
+}
+
+.btn-start:hover {
+    transform: scale(1.1);
+    background-color: #ff4757;
+}
+
+.hearts {
+    position: fixed;
+    top: -10px;
+    color: #ffb6c1;
+    user-select: none;
+    z-index: -1;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh); }
+}
+
+.cute-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.cute-buttons button {
+    font-size: 1.5rem;
+    border: none;
+    background: white;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255,107,129,0.3);
+    transition: 0.3s;
+}
+
+.cute-buttons button:hover {
+    transform: scale(1.2);
+}
+
+.popup {
+    position: fixed;
+    bottom: 110px;
+    background: #ff6b81;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="hearts" style="left:10%; animation-duration: 6s;">❤</div>
-    <div class="hearts" style="left:30%; animation-duration: 4s;">✨</div>
-    <div class="hearts" style="left:70%; animation-duration: 7s;">❤</div>
-    <div class="hearts" style="left:90%; animation-duration: 5s;">🌸</div>
+<!-- MUSIC -->
+<audio id="bgMusic" loop muted>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-    <div class="scrapbook-frame">
-        <span class="heart-decor">📍</span>
-        <img class="mySlides" src="photo1.jpg">
-        <img class="mySlides" src="photo2.jpg">
-        <img class="mySlides" src="photo3.jpg">
-        <img class="mySlides" src="photo4.jpg">
-        <img class="mySlides" src="photo5.jpg">
-        <div class="caption">Our Best Moments</div>
-    </div>
+<div class="hearts" style="left:10%; animation-duration: 6s;">❤</div>
+<div class="hearts" style="left:30%; animation-duration: 4s;">✨</div>
+<div class="hearts" style="left:70%; animation-duration: 7s;">❤</div>
+<div class="hearts" style="left:90%; animation-duration: 5s;">🌸</div>
 
-    <a href="clue1.html" class="btn-start">LET'S PLAY! ✨</a>
+<div class="scrapbook-frame">
+<span class="heart-decor">📍</span>
 
-    <script>
-        let slideIndex = 0;
-        carousel();
+<img class="mySlides" src="./photo1.jpg">
+<img class="mySlides" src="./photo2.jpg">
+<img class="mySlides" src="./photo3.jpg">
+<img class="mySlides" src="./photo4.jpg">
+<img class="mySlides" src="./photo5.jpg">
 
-        function carousel() {
-            let slides = document.getElementsByClassName("mySlides");
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}
-            slides[slideIndex-1].style.display = "block";
-            setTimeout(carousel, 2500); // Change photo every 2.5 seconds
-        }
-    </script>
+<div class="caption">Our Best Moments</div>
+</div>
+
+<a href="clue1.html" class="btn-start">LET'S PLAY! ✨</a>
+
+<div class="cute-buttons">
+    <button onclick="showMessage('Love you 💖')">💌</button>
+    <button onclick="showMessage('Happy Birthday 🎂✨')">🎉</button>
+    <button onclick="showMessage('You mean the world to me 🌍❤️')">🌸</button>
+</div>
+
+<div id="popup" class="popup"></div>
+
+<script>
+let slideIndex = 0;
+
+function carousel() {
+    const slides = document.querySelectorAll(".mySlides");
+
+    slides.forEach(slide => slide.style.display = "none");
+
+    slideIndex++;
+    if (slideIndex > slides.length) slideIndex = 1;
+
+    slides[slideIndex - 1].style.display = "block";
+
+    setTimeout(carousel, 2500);
+}
+
+carousel();
+
+// MUSIC START ON FIRST CLICK
+const music = document.getElementById("bgMusic");
+
+document.body.addEventListener("click", () => {
+    music.muted = false;
+    music.play();
+}, { once: true });
+
+function showMessage(text) {
+    const popup = document.getElementById("popup");
+    popup.innerText = text;
+    popup.style.opacity = "1";
+
+    setTimeout(() => {
+        popup.style.opacity = "0";
+    }, 2000);
+}
+</script>
 
 </body>
 </html>
