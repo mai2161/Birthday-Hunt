@@ -135,34 +135,34 @@ body {
 
 <body>
 
-<!-- MUSIC -->
+<!-- Background Music -->
 <audio id="bgMusic" loop muted>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<div class="hearts" style="left:10%; animation-duration: 6s;">❤</div>
-<div class="hearts" style="left:30%; animation-duration: 4s;">✨</div>
-<div class="hearts" style="left:70%; animation-duration: 7s;">❤</div>
-<div class="hearts" style="left:90%; animation-duration: 5s;">🌸</div>
+<div class="hearts" style="left:10%">❤</div>
+<div class="hearts" style="left:30%">✨</div>
+<div class="hearts" style="left:70%">❤</div>
+<div class="hearts" style="left:90%">🌸</div>
 
 <div class="scrapbook-frame">
 <span class="heart-decor">📍</span>
 
-<img class="mySlides" src="./photo1.jpg">
-<img class="mySlides" src="./photo2.jpg">
-<img class="mySlides" src="./photo3.jpg">
-<img class="mySlides" src="./photo4.jpg">
-<img class="mySlides" src="./photo5.jpg">
+<img class="mySlides" src="photo1.jpg" onerror="this.remove()">
+<img class="mySlides" src="photo2.jpg" onerror="this.remove()">
+<img class="mySlides" src="photo3.jpg" onerror="this.remove()">
+<img class="mySlides" src="photo4.jpg" onerror="this.remove()">
+<img class="mySlides" src="photo5.jpg" onerror="this.remove()">
 
 <div class="caption">Our Best Moments</div>
 </div>
 
-<a href="clue1.html" class="btn-start">LET'S PLAY! ✨</a>
+<a href="clue1.html" class="btn-start" onclick="startMusic()">LET'S PLAY! ✨</a>
 
 <div class="cute-buttons">
-    <button onclick="showMessage('Love you 💖')">💌</button>
-    <button onclick="showMessage('Happy Birthday 🎂✨')">🎉</button>
-    <button onclick="showMessage('You mean the world to me 🌍❤️')">🌸</button>
+<button onclick="showMessage('Love you 💖')">💌</button>
+<button onclick="showMessage('Happy Birthday 🎂✨')">🎉</button>
+<button onclick="showMessage('You mean the world to me 🌍❤️')">🌸</button>
 </div>
 
 <div id="popup" class="popup"></div>
@@ -172,35 +172,30 @@ let slideIndex = 0;
 
 function carousel() {
     const slides = document.querySelectorAll(".mySlides");
+    if (slides.length === 0) return;
 
     slides.forEach(slide => slide.style.display = "none");
 
-    slideIndex++;
-    if (slideIndex > slides.length) slideIndex = 1;
-
-    slides[slideIndex - 1].style.display = "block";
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].style.display = "block";
 
     setTimeout(carousel, 2500);
 }
 
 carousel();
 
-// MUSIC START ON FIRST CLICK
-const music = document.getElementById("bgMusic");
-
-document.body.addEventListener("click", () => {
+function startMusic() {
+    const music = document.getElementById("bgMusic");
     music.muted = false;
     music.play();
-}, { once: true });
+}
 
 function showMessage(text) {
     const popup = document.getElementById("popup");
     popup.innerText = text;
     popup.style.opacity = "1";
 
-    setTimeout(() => {
-        popup.style.opacity = "0";
-    }, 2000);
+    setTimeout(() => popup.style.opacity = "0", 2000);
 }
 </script>
 
